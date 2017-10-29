@@ -1,0 +1,5 @@
+<header class="center"><label>{{$ctrl.getTitle()}}</label></header>
+
+<div ng-repeat="video in $ctrl.videos track by $index">
+    <video-player video="video"></video-player>
+</div>

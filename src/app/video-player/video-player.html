@@ -1,0 +1,25 @@
+<header>
+    <label>{{$ctrl.video.title ? $ctrl.video.title : 'Title is missing'}}</label>
+    <label>{{$ctrl.video.views ? $ctrl.video.views + ' views' : 'Views data is missing'}}</label>    
+</header>
+
+<div ng-if="$ctrl.isKnownSource($ctrl.video.source)">
+    <div ng-if="$ctrl.video.source === 'url'" class="player">
+        <video ng-if="$ctrl.video.url" width="800" controls><source src="{{$ctrl.video.url}}"></video>
+        <label ng-if="!$ctrl.video.url">Video is missing</label>
+    </div>
+    <div ng-if="$ctrl.video.source === 'youtube'" class="player">
+        <iframe ng-if="$ctrl.video.videoId" width="800" height="448" ng-src="{{$ctrl.getYoutubeURL()}}" frameborder="0"></iframe>
+        <label ng-if="!$ctrl.video.videoId">Video is missing</label>        
+    </div>
+    <div ng-if="$ctrl.video.source === 'facebook'" class="player">
+        <iframe ng-if="$ctrl.video.videoId" width="800" height="448" ng-src="{{$ctrl.getFacebookURL()}}" frameborder="0"></iframe>
+        <label ng-if="!$ctrl.video.videoId">Video is missing</label>        
+    </div>
+</div>
+<div ng-if="!$ctrl.isKnownSource($ctrl.video.source)">
+    <div class='player'>
+        <label>Unknow video source</label>
+    </div>
+</div>
+
