@@ -3,3 +3,5 @@
 <div ng-repeat="video in $ctrl.videos track by $index">
     <video-player video="video"></video-player>
 </div>
+
+<div ng-if="$ctrl.error" class="error"><label>Error {{$ctrl.error.status}}: Cannot load video feed</label></div>

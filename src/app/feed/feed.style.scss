@@ -5,7 +5,6 @@ feed {
     display: flex;
     flex-direction: column;
     align-items: center;
-    background: #eee;
     header {
         box-shadow: $shadow;
     }
@@ -14,6 +13,14 @@ feed {
         justify-content: center;
         label {
             font-size: 1.5rem;
+        }
+    }
+    .error {
+        padding: 2rem;
+        label {
+            color: #aaa;
+            font-weight: bold;
+            font-size: 2rem;
         }
     }
 }
